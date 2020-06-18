@@ -5,5 +5,9 @@
   "main": "app.js",
   "repository": "https://github.com/sangwon090/mock-nypc.git",
   "author": "Sangwon Ryu <bdboy090@naver.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1",
+    "ejs": "^3.1.3"
+  }
 }
