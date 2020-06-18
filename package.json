@@ -1,0 +1,9 @@
+{
+  "name": "mock-nypc",
+  "version": "1.0.0",
+  "description": "NYPC 예선과 비슷한 환경을 구축해주는 웹 앱",
+  "main": "app.js",
+  "repository": "https://github.com/sangwon090/mock-nypc.git",
+  "author": "Sangwon Ryu <bdboy090@naver.com>",
+  "license": "MIT"
+}
