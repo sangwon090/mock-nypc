@@ -3,7 +3,8 @@ const express = require('express');
 const db = require('./db/mariadb');
 
 const app = express();
-const router = require('./router/main')(app, config);
+const main_router = require('./router/main')(app, config);
+const api_router = require('./router/api')(app, config);
 
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
