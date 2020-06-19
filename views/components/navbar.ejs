@@ -1,8 +1,13 @@
 <nav class="navbar is-dark">
     <div class="navbar-brand">
-        <a class="navbar-item"><%= title %></a>
+        <a class="navbar-item" href="/"><%= title %></a>
+        <a class="navbar-burger" data-target="navbar">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
     </div>
-    <div class="navbar-menu">
+    <div class="navbar-menu" id="navbar">
         <div class="navbar-start">
             <a class="navbar-item" href="/problems/">문제</a>
             <a class="navbar-item" href="/problems/">스코어보드</a>
@@ -18,3 +23,20 @@
         </div>
     </div>
 </nav>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const button = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+
+        if(button.length > 0) {
+            button.forEach(e => {
+                e.addEventListener('click', () => {
+                    const targetName = e.dataset.target;
+                    const target = document.getElementById(targetName);
+
+                    e.classList.toggle('is-active');
+                    target.classList.toggle('is-active');
+                });
+            })
+        }
+    });
+</script>
