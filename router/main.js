@@ -1,6 +1,6 @@
 module.exports = (app, config) => {
     app.get('/', (req, res) => {
-        res.render('index', {
+        res.render('home', {
             title: config.title,
             logined: true
         });
