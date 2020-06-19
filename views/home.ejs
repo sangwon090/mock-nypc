@@ -3,7 +3,14 @@
     <%- include('components/head') %>
     <body>
         <%-include('components/navbar', { title: title, logined: logined }) %>
-        <h1>Hello, World!</h1>
+        <section class="hero is-medium is-primary is-bold">
+            <div class="hero-body">
+                <div class="container">
+                    <h1 class="title"><%= title %></h1>
+                    <h2 class="subtitle">시작까지 1일 2시간 34분 56초 남음</h2>
+                </div>
+            </div>
+        </section>
         <%- include('components/scripts') %>
     </body>
 </html>
