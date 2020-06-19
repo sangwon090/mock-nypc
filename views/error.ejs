@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>mock-nypc error</title>
+    </head>
+    <body>
+        <h1>오류 발생</h1>
+
+        <% if(showError) { %>
+            <h3><a href="https://github.com/sangwon090/mock-nypc/issues">Github 레포지토리</a>에 이슈를 남겨주세요!</h3>
+            <pre><%= error.message %></pre><br />
+        <% } else {%>
+            <p>자세한 정보는 관리자에게 문의하십시오.</p>    
+        <% } %>
+    </body>
+</html>
