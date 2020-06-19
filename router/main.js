@@ -5,4 +5,4 @@ module.exports = (app, config) => {
             logined: true
         });
     });
-}
+};

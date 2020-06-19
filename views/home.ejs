@@ -1,12 +1,9 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Mock NYPC</title>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css"></style>
-        <link rel="stylesheet" href="/static/fonts.css"></style>
-    </head>
+    <%- include('components/head') %>
     <body>
         <%-include('components/navbar', { title: title, logined: logined }) %>
         <h1>Hello, World!</h1>
+        <%- include('components/scripts') %>
     </body>
 </html>
