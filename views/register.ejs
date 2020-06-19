@@ -10,7 +10,16 @@
                 <div class="columns is-centered">
                     <div class="column is-8-tablet is-6-desktop is-5-widescreen">
                         <form class="box" action="/api/login" method="post">
-                            <h1 class="title">로그인</h1>
+                            <h1 class="title">회원가입</h1>
+                            <div class="field">
+                                <label class="label">이름</label>
+                                <div class="control has-icons-left">
+                                    <input class="input" type="text" required>
+                                    <span class="icon is-small is-left">
+                                        <i class="fa fa-user"></i>
+                                    </span>
+                                </div>
+                            </div>
                             <div class="field">
                                 <label class="label">이메일</label>
                                 <div class="control has-icons-left">
@@ -21,7 +30,25 @@
                                 </div>
                             </div>
                             <div class="field">
+                                <label class="label">상태 메시지 (선택)</label>
+                                <div class="control has-icons-left">
+                                    <input class="input" type="text">
+                                    <span class="icon is-small is-left">
+                                        <i class="fa fa-quote-left"></i>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="field">
                                 <label class="label">패스워드</label>
+                                <div class="control has-icons-left">
+                                    <input class="input" type="password" required>
+                                    <span class="icon is-small is-left">
+                                        <i class="fa fa-lock"></i>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="field">
+                                <label class="label">패스워드 확인</label>
                                 <div class="control has-icons-left">
                                     <input class="input" type="password" required>
                                     <span class="icon is-small is-left">
