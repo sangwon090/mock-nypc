@@ -2,15 +2,18 @@
 <html>
     <%- include('components/head') %>
     <body>
-        <%-include('components/navbar', { title: title, logined: logined }) %>
-        <section class="hero is-medium is-primary is-bold">
-            <div class="hero-body">
-                <div class="container">
-                    <h1 class="title"><%= title %></h1>
-                    <h2 class="subtitle">시작까지 1일 2시간 34분 56초 남음</h2>
+        <div style="min-height: 100vh;">
+            <%-include('components/navbar', { title: title, logined: logined }) %>
+            <section class="hero is-medium is-primary is-bold">
+                <div class="hero-body">
+                    <div class="container">
+                        <h1 class="title"><%= title %></h1>
+                        <h2 class="subtitle">시작까지 1일 2시간 34분 56초 남음</h2>
+                    </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        </div>
+        <%- include('components/footer') %>
         <%- include('components/scripts') %>
     </body>
 </html>

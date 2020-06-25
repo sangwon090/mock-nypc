@@ -1,50 +1,51 @@
 <!DOCTYPE html>
 <html>
-<%- include('components/head') %>
-
-<body>
-    <%-include('components/navbar', { title: title, logined: logined }) %>
-    <div class="hero is-light is-fullheight-with-navbar">
-        <div class="hero-body">
-            <div class="container">
-                <div class="columns is-centered">
-                    <div class="column is-8-tablet is-6-desktop is-5-widescreen">
-                        <form class="box" action="/api/login" method="post">
-                            <h1 class="title">로그인</h1>
-                            <div class="field">
-                                <label class="label">이메일</label>
-                                <div class="control has-icons-left">
-                                    <input class="input" type="email" required>
-                                    <span class="icon is-small is-left">
-                                        <i class="fa fa-envelope"></i>
-                                    </span>
-                                </div>
+    <%- include('components/head') %>
+    <body>
+        <div style="min-height: 100vh;">
+            <%-include('components/navbar', { title: title, logined: logined }) %>
+            <div class="hero is-fullheight-with-navbar">
+                <div class="hero-body">
+                    <div class="container">
+                        <div class="columns is-centered">
+                            <div class="column is-8-tablet is-6-desktop is-5-widescreen">
+                                <form class="box" action="/api/login" method="post">
+                                    <h1 class="title">로그인</h1>
+                                    <div class="field">
+                                        <label class="label">이메일</label>
+                                        <div class="control has-icons-left">
+                                            <input class="input" type="email" required>
+                                            <span class="icon is-small is-left">
+                                                <i class="fa fa-envelope"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="field">
+                                        <label class="label">패스워드</label>
+                                        <div class="control has-icons-left">
+                                            <input class="input" type="password" required>
+                                            <span class="icon is-small is-left">
+                                                <i class="fa fa-lock"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="field">
+                                        <label class="checkbox">
+                                            <input type="checkbox">
+                                            로그인 상태 유지
+                                        </label>
+                                    </div>
+                                    <div class="field">
+                                        <button class="button is-success is-pulled-right">로그인</button>
+                                    </div>
+                                </form>
                             </div>
-                            <div class="field">
-                                <label class="label">패스워드</label>
-                                <div class="control has-icons-left">
-                                    <input class="input" type="password" required>
-                                    <span class="icon is-small is-left">
-                                        <i class="fa fa-lock"></i>
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="field">
-                                <label class="checkbox">
-                                    <input type="checkbox">
-                                    로그인 상태 유지
-                                </label>
-                            </div>
-                            <div class="field">
-                                <button class="button is-success">로그인</button>
-                            </div>
-                        </form>
+                        </section>
                     </div>
-                    </section>
                 </div>
             </div>
         </div>
+        <%- include('components/footer') %>
         <%- include('components/scripts') %>
-</body>
-
+    </body>
 </html>

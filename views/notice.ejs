@@ -1,38 +1,40 @@
 <!DOCTYPE html>
 <html>
-<%- include('components/head') %>
-<body>
-    <%-include('components/navbar', { title: title, logined: logined }) %>
-    <style>
-        nav {
-            margin-bottom: 32px;
-        }
+    <%- include('components/head') %>
+    <body>
+        <style>
+            nav {
+                margin-bottom: 32px;
+            }
 
-        .message-body {
-            margin-bottom: 32px;
-        }
-    </style>
-    <div class="container is-fluid">
-        <% data.forEach(notice => { %>
-            <% if(notice.level === 1) { %>
-                <article class="message is-danger">
-            <% } else if(notice.level === 2) { %>
-                <article class="message is-warning">
-            <% } else if(notice.level === 3) { %>
-                <article class="message is-success">
-            <% } else { %>
-                <article class="message is-info">
-            <% } %>
-                <div class="message-header">
-                    <p><%= notice.createdAt %> - <%= notice.title %></p>
-                </div>
-                <div class="message-body">
-                    <p><%= notice.content %></p>
-                </div>
-            </article>
-        <% }); %>
-    </div>
-    <%- include('components/scripts') %>
-</body>
-
+            .message-body {
+                margin-bottom: 32px;
+            }
+        </style>
+        <div style="min-height: 100vh;">
+            <%-include('components/navbar', { title: title, logined: logined }) %>
+            <div class="container is-fluid">
+                <% data.forEach(notice => { %>
+                    <% if(notice.level === 1) { %>
+                        <article class="message is-danger">
+                    <% } else if(notice.level === 2) { %>
+                        <article class="message is-warning">
+                    <% } else if(notice.level === 3) { %>
+                        <article class="message is-success">
+                    <% } else { %>
+                        <article class="message is-info">
+                    <% } %>
+                        <div class="message-header">
+                            <p><%= notice.createdAt %> - <%= notice.title %></p>
+                        </div>
+                        <div class="message-body">
+                            <p><%= notice.content %></p>
+                        </div>
+                    </article>
+                <% }); %>
+            </div>
+        </div>
+        <%- include('components/footer') %>
+        <%- include('components/scripts') %>
+    </body>
 </html>
