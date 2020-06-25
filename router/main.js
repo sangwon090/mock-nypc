@@ -1,4 +1,6 @@
-module.exports = (app, config) => {
+module.exports = (app, config, rootPath) => {
+    const fs = require('fs');
+
     app.get('/', (req, res) => {
         res.render('home', {
             title: config.title,
@@ -24,9 +26,14 @@ module.exports = (app, config) => {
 
     app.get('/register', (req, res) => {
         // TODO: 이미 로그인 되었으면 홈으로 리다이렉트
+        let tos = fs.readFileSync(rootPath + '/docs/terms_of_service.txt').toString();
+        let pri = fs.readFileSync(rootPath + '/docs/privacy_policy.txt').toString();
+
         res.render('register', {
             title: config.title,
-            logined: false
+            logined: false,
+            tos: tos,
+            pri: pri
         });
     })
 };

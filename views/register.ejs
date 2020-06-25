@@ -3,6 +3,28 @@
     <%- include('components/head') %>
     <body>
         <div style="min-height: 100vh;">
+            <div class="modal" id="tos">
+                <div class="modal-background"></div>
+                <div class="modal-card">
+                    <header class="modal-card-head">
+                       <p class="modal-card-title">이용약관</p>
+                       <button class="delete" id="tos_close"></button>
+                    </header>
+                    <section class="modal-card-body"><%- tos %></section>
+                    <footer class="modal-card-foot"></footer>
+                </div>
+            </div>
+            <div class="modal" id="pri">
+                <div class="modal-background"></div>
+                <div class="modal-card">
+                    <header class="modal-card-head">
+                       <p class="modal-card-title">개인정보취급방침</p>
+                       <button class="delete" id="pri_close"></button>
+                    </header>
+                    <section class="modal-card-body"><%- pri %></section>
+                    <footer class="modal-card-foot"></footer>
+                </div>
+            </div>
             <%-include('components/navbar', { title: title, logined: logined }) %>
             <div class="hero is-fullheight-with-navbar">
                 <div class="hero-body">
@@ -30,15 +52,6 @@
                                         </div>
                                     </div>
                                     <div class="field">
-                                        <label class="label">상태 메시지 (선택)</label>
-                                        <div class="control has-icons-left">
-                                            <input class="input" type="text">
-                                            <span class="icon is-small is-left">
-                                                <i class="fa fa-quote-left"></i>
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <div class="field">
                                         <label class="label">패스워드</label>
                                         <div class="control has-icons-left">
                                             <input class="input" type="password" required>
@@ -57,13 +70,24 @@
                                         </div>
                                     </div>
                                     <div class="field">
+                                        <label class="label">상태 메시지 (선택)</label>
+                                        <div class="control has-icons-left">
+                                            <input class="input" type="text">
+                                            <span class="icon is-small is-left">
+                                                <i class="fa fa-quote-left"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="field">
                                         <label class="checkbox">
-                                            <input type="checkbox">
-                                            로그인 상태 유지
+                                            <input type="checkbox" required>
+                                            <a href="#" id="tos_open">이용약관</a>과 <a href="#" id="pri_open">개인정보취급방침</a>에 동의합니다.
                                         </label>
                                     </div>
                                     <div class="field">
-                                        <button class="button is-success">로그인</button>
+                                        <div class="buttons is-right">
+                                            <button class="button is-success">회원가입</button>
+                                        </div>
                                     </div>
                                 </form>
                             </div>
@@ -74,5 +98,24 @@
         </div>
         <%- include('components/footer') %>
         <%- include('components/scripts') %>
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                document.getElementById('tos_open').addEventListener('click', () => {
+                    document.getElementById('tos').classList.toggle('is-active');
+                });
+
+                document.getElementById('pri_open').addEventListener('click', () => {
+                    document.getElementById('pri').classList.toggle('is-active');
+                });
+
+                document.getElementById('tos_close').addEventListener('click', () => {
+                    document.getElementById('tos').classList.toggle('is-active');
+                })
+
+                document.getElementById('pri_close').addEventListener('click', () => {
+                    document.getElementById('pri').classList.toggle('is-active');
+                })
+            });
+        </script>
     </body>
 </html>
