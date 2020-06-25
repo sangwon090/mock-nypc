@@ -14,24 +14,32 @@
         <div style="min-height: 100vh;">
             <%-include('components/navbar', { title: title, logined: logined }) %>
             <div class="container is-fluid">
-                <% data.forEach(notice => { %>
-                    <% if(notice.level === 1) { %>
-                        <article class="message is-danger">
-                    <% } else if(notice.level === 2) { %>
-                        <article class="message is-warning">
-                    <% } else if(notice.level === 3) { %>
-                        <article class="message is-success">
-                    <% } else { %>
-                        <article class="message is-info">
-                    <% } %>
-                        <div class="message-header">
-                            <p><%= notice.createdAt %> - <%= notice.title %></p>
+                <% if(data.length > 0) { %>
+                    <% data.forEach(notice => { %>
+                        <% if(notice.level === 1) { %>
+                            <article class="message is-danger">
+                        <% } else if(notice.level === 2) { %>
+                            <article class="message is-warning">
+                        <% } else if(notice.level === 3) { %>
+                            <article class="message is-success">
+                        <% } else { %>
+                            <article class="message is-info">
+                        <% } %>
+                            <div class="message-header">
+                                <p><%= notice.createdAt %> - <%= notice.title %></p>
+                            </div>
+                            <div class="message-body">
+                                <p><%= notice.content %></p>
+                            </div>
+                        </article>
+                    <% }); %>
+                <% } else { %>
+                    <div class="columns is-centered">
+                        <div class="column">
+                            <h1 class="title is-1 has-text-centered">작성된 공지가 없습니다.</h1>
                         </div>
-                        <div class="message-body">
-                            <p><%= notice.content %></p>
-                        </div>
-                    </article>
-                <% }); %>
+                    </div>
+                <% } %>
             </div>
         </div>
         <%- include('components/footer') %>
