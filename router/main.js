@@ -18,9 +18,16 @@ module.exports = (app, config, rootPath) => {
 
     app.get('/login', (req, res) => {
         // TODO: 이미 로그인 되었으면 홈으로 리다이렉트
+        let error = '';
+
+        if(req.query.error == 1) error = '이메일이 입력되지 않았습니다.';
+        if(req.query.error == 2) error = '패스워드가 입력되지 않았습니다.';
+        if(req.query.error == 3) error = '이메일 또는 패스워드가 올바르지 않습니다.';
+
         res.render('login', {
             title: config.title,
-            logined: false
+            logined: false,
+            error: error
         });
     });
 

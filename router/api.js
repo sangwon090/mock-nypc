@@ -1,4 +1,16 @@
 module.exports = (app, config) => {
+    app.post('/api/login', (req, res) => {
+        if(!req.body.email) {
+            // Abnormal access
+            res.redirect('register/?error=1');
+        } else if(!req.body.password) {
+            // Abnormal access
+            res.redirect('/register/?error=2');
+        } else {
+            res.redirect('/');
+        }
+    });
+
     app.post('/api/register', (req, res) => {
         const username_regex = /^[\w\Wㄱ-ㅎㅏ-ㅣ가-힣]{5,20}$/g;
         const email_regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;

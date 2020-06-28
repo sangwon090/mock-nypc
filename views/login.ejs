@@ -14,7 +14,7 @@
                                     <div class="field">
                                         <label class="label">이메일</label>
                                         <div class="control has-icons-left">
-                                            <input class="input" type="email" required>
+                                            <input class="input" type="email" name="email" required>
                                             <span class="icon is-small is-left">
                                                 <i class="fa fa-envelope"></i>
                                             </span>
@@ -23,7 +23,7 @@
                                     <div class="field">
                                         <label class="label">패스워드</label>
                                         <div class="control has-icons-left">
-                                            <input class="input" type="password" required>
+                                            <input class="input" type="password" name="password" required>
                                             <span class="icon is-small is-left">
                                                 <i class="fa fa-lock"></i>
                                             </span>
@@ -49,5 +49,10 @@
         </div>
         <%- include('components/footer') %>
         <%- include('components/scripts') %>
+        <script>
+            <% if(error != '') { %>
+                alert('<%= error %>');
+            <% } %>
+        </script>
     </body>
 </html>
