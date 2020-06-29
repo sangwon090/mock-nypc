@@ -1,17 +1,18 @@
 module.exports = (app, config) => {
-    app.post('/api/login', (req, res) => {
-        if(!req.body.email) {
-            // Abnormal access
-            res.redirect('register/?error=1');
-        } else if(!req.body.password) {
-            // Abnormal access
-            res.redirect('/register/?error=2');
-        } else {
-            res.redirect('/');
-        }
-    });
+    const account = require('../db/models/account');
+    const passport = require('passport');
+
+    app.post('/api/login', passport.authenticate('local', {
+        successRedirect: '/',
+        failureRedirect: '/login/?error=3',
+        failureFlash: false
+    }));
 
     app.post('/api/register', (req, res) => {
+        if(req.isAuthenticated()) {
+            return next();
+        }
+
         const username_regex = /^[\w\Wㄱ-ㅎㅏ-ㅣ가-힣]{5,20}$/g;
         const email_regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
@@ -32,7 +33,18 @@ module.exports = (app, config) => {
             // Abnormal access
             res.redirect('/register/?error=6');
         } else {
-            res.redirect('/');
+            const new_account = new account({
+                username: req.body.username,
+                email: req.body.email,
+                bio: req.body.bio
+            });
+            account.register(new_account, req.body.password, (err, user) => {
+                if(err) {
+                    res.redirect('/register/?error=7');
+                } else {
+                    res.redirect('/login/');
+                }
+            });
         }
     });
 };
